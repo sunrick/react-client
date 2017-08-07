@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'
+
 import './SideNav.css';
 
 class SideNav extends Component {
@@ -14,18 +16,18 @@ class SideNav extends Component {
             </div>
           </div>
           <div className="sub-section">
-            <a className="button is-small is-primary is-active">
-              <span> Dashboard </span>
-            </a>
+            <NavLink className="button is-small is-primary" to="/" exact activeClassName="is-active">
+              Dashboard
+            </NavLink>
           </div>
           <div className="sub-section">
             <h2 className="header"> broadcasts </h2>
-            <a className="button is-small is-primary">
+            <NavLink className="button is-small is-primary" to="/main" exact activeClassName="is-active">
               <span className="icon is-small">
                 <i className="fa fa-hashtag" aria-hidden="true"></i>
               </span>
               <span> main </span>
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>
