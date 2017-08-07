@@ -5,28 +5,12 @@ class SideNav extends Component {
   render() {
     return (
       <div className="SideNav">
-        <div className="Left">
-          <div className="Item">
-            <a> Y </a>
-          </div>
-          <div className="Item">
-            <a> O </a>
-          </div>
-          <div className="Item">
-            <a> D </a>
-          </div>
-          <div className="Item">
-            <a> A </a>
-          </div>
-          <div className="Item">
-            <a> W </a>
-          </div>
-          <div className="Item">
-            <a> G </a>
-          </div>
-        </div>
         <div className="Right">
           <h4 className="is-4 title">Hello Robert</h4>
+          <a className="button is-primary">Primary</a>
+          <a className="button is-success">Success</a>
+          <a className="button is-warning">Warning</a>
+          <a className="button is-danger">Danger</a>
         </div>
       </div>
     );
