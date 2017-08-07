@@ -16,13 +16,13 @@ class SideNav extends Component {
             </div>
           </div>
           <div className="sub-section">
-            <NavLink className="button is-small is-primary" to="/" exact activeClassName="is-active">
+            <NavLink className="button is-small is-primary" to="/app/" exact activeClassName="is-active">
               Dashboard
             </NavLink>
           </div>
           <div className="sub-section">
             <h2 className="header"> broadcasts </h2>
-            <NavLink className="button is-small is-primary" to="/main" exact activeClassName="is-active">
+            <NavLink className="button is-small is-primary" to="/app/main" exact activeClassName="is-active">
               <span className="icon is-small">
                 <i className="fa fa-hashtag" aria-hidden="true"></i>
               </span>

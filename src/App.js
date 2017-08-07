@@ -5,11 +5,8 @@ import {
   Switch
 } from 'react-router-dom'
 
-import SideNav from './SideNav.js';
-import Dashboard from './Dashboard.js';
+import MainApp from './MainApp.js';
 import NoMatch from './NoMatch.js';
-
-import './css/App.css';
 
 class App extends Component {
 
@@ -17,15 +14,11 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <SideNav/>
-          <section className="App-Container">
-            <Switch>
-              <Route exact path="/" component={Dashboard}/>
-              <Route component={NoMatch}/>
-            </Switch>
-          </section>
+          <Switch>
+            <Route exact path="/app" component={MainApp}/>
+            <Route component={NoMatch}/>
+          </Switch>
         </div>
-
       </Router>
     );
   }
