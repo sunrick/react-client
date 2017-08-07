@@ -1,0 +1,18 @@
+@import "./variables.sass";
+
+.Dashboard {
+  > .items {
+    display: flex;
+    > .item {
+      border-right: 1px solid $border;
+      border-bottom: 1px solid $border;
+      height: 200px;
+      width: 33.33%;
+      background-color: $white;
+      padding: 1rem;
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
