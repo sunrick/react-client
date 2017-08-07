@@ -22,3 +22,7 @@ yarn-error.log*
 
 # ingore built css files
 /src/**/*.css
+
+# ignore sublime
+smolder.sublime-project
+smolder.sublime-workspace
