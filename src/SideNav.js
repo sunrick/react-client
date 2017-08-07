@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 
-import './SideNav.css';
+import './css/SideNav.css';
 
 class SideNav extends Component {
   render() {

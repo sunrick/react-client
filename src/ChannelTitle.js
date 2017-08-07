@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ChannelTitle.css';
+import './css/ChannelTitle.css';
 
 class ChannelTitle extends Component {
 

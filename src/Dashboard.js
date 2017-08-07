@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ChannelTitle from './ChannelTitle.js';
-import './Dashboard.css';
+import './css/Dashboard.css';
 
 class Dashboard extends Component {
 

@@ -9,7 +9,7 @@ import SideNav from './SideNav.js';
 import Dashboard from './Dashboard.js';
 import NoMatch from './NoMatch.js';
 
-import './App.css';
+import './css/App.css';
 
 class App extends Component {
 
