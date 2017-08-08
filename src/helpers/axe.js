@@ -5,6 +5,7 @@ class Axe {
     this.request = axios.create({
       baseURL: 'https://api.example.com'
     });
+    this.loggedIn = true;
   }
 
 }
