@@ -44,7 +44,7 @@ class App extends Component {
               <Route exact path="/" render={() => (
                 <Redirect to="/app"/>
               )}/>
-              <Route path="/app" component={MainApp}/>
+              <Route exact path="/app" component={MainApp}/>
               <Route component={NoMatch}/>
             </Switch>
           </div>
