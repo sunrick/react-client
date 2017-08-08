@@ -10,7 +10,6 @@ import Dashboard from './Dashboard.js';
 import './css/MainApp.css';
 
 class MainApp extends Component {
-
   render() {
     return (
       <div className="MainApp">

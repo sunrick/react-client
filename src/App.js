@@ -9,7 +9,6 @@ import MainApp from './MainApp.js';
 import NoMatch from './NoMatch.js';
 
 class App extends Component {
-
   render() {
     return (
       <Router>
@@ -22,7 +21,6 @@ class App extends Component {
       </Router>
     );
   }
-
 }
 
 export default App;
