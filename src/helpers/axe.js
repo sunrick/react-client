@@ -3,22 +3,31 @@ import cookies from './cookies.js';
 
 class Axe {
   constructor(){
-    this.request = axios.create({
-      baseURL: 'https://api.example.com'
-    });
+    if (process.env.NODE_ENV === 'production') {
+      this.request = axios.create({
+        baseURL: `PLACEHOLDER`,
+        headers: {
+          "Authorization": `Bearer ${this.getAuthToken()}`
+        }
+      });
+    } else {
+      this.request = axios.create({
+        baseURL: `http://${window.location.hostname}:4000/api`,
+        headers: {
+          "Authorization": `Bearer ${this.getAuthToken()}`
+        }
+      });
+    }
   }
 
-  setLoginState(value){
+  setAuthToken(token) {
     // need to figure out subdomains
-    cookies.set('loggedIn', value, { path: "/" });
+    cookies.set('authToken', token, { path: "/" });
+    this.request.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   }
 
-  getLoginState() {
-    return (cookies.get('loggedIn') || false);
-  }
-
-  removeLoginState() {
-    cookies.remove('loggedIn');
+  getAuthToken() {
+    return cookies.get('authToken') || ''
   }
 
 }

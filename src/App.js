@@ -15,27 +15,27 @@ import axe from './helpers/axe.js';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { loggedIn: axe.getLoginState() };
-    this.authHandler = this.authHandler.bind(this);
+    this.state = { token: axe.getAuthToken() };
   }
 
-  authHandler(value) {
-    this.setState(
-      ({prevState}) => ({
-        loggedIn: value
-      })
-    );
-    axe.setLoginState(value);
+  authHandler = (token) => {
+    this.setState({
+      token: token
+    });
+    axe.setAuthToken(token);
+  }
+
+  isLoggedIn = () => {
+    return this.state.token.length > 0;
   }
 
   render() {
-    const loggedIn = this.state.loggedIn;
     const login = (props) => (
       <Login {...props} authHandler={this.authHandler}/>
     )
     return (
       <Router>
-        {loggedIn ? (
+        {this.isLoggedIn() ? (
           <div className="App">
             <Switch>
               <Route exact path="/login" render={() => (
