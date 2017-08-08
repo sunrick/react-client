@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
-import {
-  Redirect
-} from 'react-router-dom'
-
-import axe from './helpers/axe.js'
 
 class Login extends Component {
+
+  exampleTimeout() {
+    setTimeout(() => {
+      this.props.authHandler(true);
+    }, 5000)
+  }
+
   render() {
+    this.exampleTimeout();
     return (
       <div className="Login">
-        {
-          axe.loggedIn ? (
-            <Redirect to={{
-              pathname: '/app',
-            }}/>
-          ) : (
-            <p> Login </p>
-          )
-        }
+        <p> Login </p>
       </div>
     );
   }

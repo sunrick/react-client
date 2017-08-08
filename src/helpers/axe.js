@@ -6,7 +6,19 @@ class Axe {
     this.request = axios.create({
       baseURL: 'https://api.example.com'
     });
-    this.loggedIn = cookies.get('loggedIn') || false;
+  }
+
+  setLoginState(value){
+    // need to figure out subdomains
+    cookies.set('loggedIn', value, { path: "/" });
+  }
+
+  getLoginState() {
+    return (cookies.get('loggedIn') || false);
+  }
+
+  removeLoginState() {
+    cookies.remove('loggedIn');
   }
 
 }
