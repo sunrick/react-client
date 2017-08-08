@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axe from './helpers/axe.js';
 
+import './css/Login.css';
+
 class Login extends Component {
   constructor(props) {
     super(props)
@@ -8,12 +10,6 @@ class Login extends Component {
       email: '',
       password: ''
     };
-  }
-
-  exampleTimeout() {
-    // setTimeout(() => {
-    //   this.props.authHandler(true);
-    // }, 5000)
   }
 
   handleSubmit = (event) => {
@@ -39,39 +35,54 @@ class Login extends Component {
   }
 
   render() {
-    this.exampleTimeout();
     return (
       <div className="Login">
-        <p> Login </p>
-        <form onSubmit={this.handleSubmit}>
-          <div className="field">
-            <label className="label">Email</label>
-            <div className="control">
-              <input
-                className="input"
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                name="email"
-                type="text"
-                placeholder="Enter your email"
-              />
+        <nav className="navbar">
+          <div className="navbar-brand">
+            <div className="navbar-item">
+              <h3 className="title is-3 has-text-primary">
+                <span>smolder</span><span className="has-text-accent">.</span>
+              </h3>
             </div>
           </div>
-          <div className="field">
-            <label className="label">Password</label>
-            <div className="control">
-              <input
-                className="input"
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-                type="password"
-                placeholder="Enter your password"
-              />
-            </div>
+        </nav>
+        <div className="container">
+          <div className="box">
+            <h1 className="title is-2"> Sign in to m404 </h1>
+            <h2 className="subtitle is-5"> m404.smolder.io </h2>
+            <form onSubmit={this.handleSubmit}>
+              <div className="field">
+                <div className="control">
+                  <input
+                    className="input is-medium"
+                    value={this.state.email}
+                    onChange={this.handleInputChange}
+                    name="email"
+                    type="text"
+                    placeholder="your@email.com"
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <div className="control">
+                  <input
+                    className="input is-medium"
+                    value={this.state.password}
+                    onChange={this.handleInputChange}
+                    name="password"
+                    type="password"
+                    placeholder="password"
+                  />
+                </div>
+              </div>
+              <div className="field approve">
+                <div className="control">
+                  <button className="button is-success is-fullwidth is-medium" type="submit">LOG IN</button>
+                </div>
+              </div>
+            </form>
           </div>
-          <button type="submit">Save</button>
-        </form>
+        </div>
       </div>
     );
   }

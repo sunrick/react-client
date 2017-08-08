@@ -1,0 +1,22 @@
+@import "./variables.sass";
+
+.Login {
+  .navbar {
+    border-bottom: 1px solid $border;
+  }
+  .title {
+    margin-top: 0px;
+  }
+  .approve {
+    margin-top: 2rem;
+  }
+  form {
+    margin-top: 2rem;
+  }
+  .box {
+    margin: 0 auto;
+    margin-top: 3rem;
+    width: 50%;
+    padding: 3rem 4rem 4rem 4rem;
+  }
+}
