@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
-import {observer} from "mobx-react";
+import {observer, inject} from "mobx-react";
 
 import './css/ChannelTitle.css';
 
-import AppStore from "./stores/AppStore.js";
-
-const ChannelTitle = observer(class ChannelTitle extends Component {
+const ChannelTitle = inject("AppStore")(observer(class ChannelTitle extends Component {
+  constructor(props) {
+    super(props)
+    console.log(props);
+  }
   componentWillReact() {
     console.log("I will re-render, since the todo has changed!");
   }
   render() {
+    const AppStore = this.props.AppStore;
     setTimeout(() => {
       AppStore.changeTitle("HEllo new Title");
       AppStore.changeDescription("HEllo new description");
-    }, 5000)
+    }, 1000)
     return (
       <div className="ChannelTitle">
         <h4 className="title is-5"> {AppStore.channelTitleUpcase} </h4>
@@ -21,6 +24,6 @@ const ChannelTitle = observer(class ChannelTitle extends Component {
       </div>
     );
   }
-})
+}))
 
 export default ChannelTitle;
