@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 import { NavLink } from 'react-router-dom';
 import AppStore from './stores/AppStore.js';
 
