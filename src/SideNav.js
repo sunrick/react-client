@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom'
+import { observer } from 'mobx-react';
+import { NavLink } from 'react-router-dom';
+import AppStore from './stores/AppStore.js';
 
 import './css/SideNav.css';
 
-class SideNav extends Component {
+const SideNav = observer(class SideNav extends Component {
   render() {
     return (
       <div className="SideNav">
@@ -12,7 +14,7 @@ class SideNav extends Component {
             <h1 className="logo">m:404</h1>
             <div className="user-login">
               <i className="fa fa-circle has-text-success"></i>
-              <span> rickardsunden </span>
+              <span> {AppStore.email || 'unknown'} </span>
             </div>
           </div>
           <div className="sub-section">
@@ -29,10 +31,13 @@ class SideNav extends Component {
               <span> main </span>
             </NavLink>
           </div>
+          <div className="logout">
+            <button onClick={() => { AppStore.logOut(); }} className="button is-small is-light is-outlined is-fullwidth"> LOG OUT </button>
+          </div>
         </div>
       </div>
     );
   }
-}
+})
 
 export default SideNav;

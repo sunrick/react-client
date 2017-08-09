@@ -45,6 +45,8 @@ $right-side-nav-right-padding: 1rem;
 // }
 
 .SideNav .Right {
+  display: flex;
+  flex-direction: column;
   width: $right-side-nav-width;
   height: 100vh;
   background-color: $right-side-nav-color;
@@ -102,4 +104,11 @@ $right-side-nav-right-padding: 1rem;
     padding-left: $right-side-nav-left-padding;
     justify-content: flex-start;
   }
+}
+
+.SideNav .Right .logout {
+  margin-top: auto;
+  padding-left: $right-side-nav-left-padding;
+  padding-right: $right-side-nav-right-padding;
+  margin-bottom: 0.75rem;
 }

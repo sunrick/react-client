@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axe from './helpers/axe.js';
 
+import AppStore from './stores/AppStore.js';
+
 import './css/Login.css';
 
 class Login extends Component {
@@ -16,9 +18,10 @@ class Login extends Component {
     event.preventDefault();
     const self = this;
     axe.request.post('/login',{
-      user: this.state
+      user: self.state
     }).then(function(response){
-      self.props.authHandler(response.data.jwt)
+      AppStore.setEmail(self.state.email);
+      AppStore.setAuthToken(response.data.jwt);
       console.log(response);
     }).catch(function(error){
       console.log(error);

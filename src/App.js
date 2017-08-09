@@ -5,38 +5,20 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom'
+import { observer } from 'mobx-react';
 
 import MainApp from './MainApp.js';
 import NoMatch from './NoMatch.js';
 import Login from './Login.js';
 
-import axe from './helpers/axe.js';
+import AppStore from './stores/AppStore.js';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { token: axe.getAuthToken() };
-  }
-
-  authHandler = (token) => {
-    this.setState({
-      token: token
-    });
-    axe.setAuthToken(token);
-  }
-
-  isLoggedIn = () => {
-    return this.state.token.length > 0;
-  }
-
+const App = observer(class App extends Component {
   render() {
-    const login = (props) => (
-      <Login {...props} authHandler={this.authHandler}/>
-    )
     return (
       <Router>
-        {this.isLoggedIn() ? (
-          <div className="App">
+        <div className="App">
+          {AppStore.loggedIn ? (
             <Switch>
               <Route exact path="/login" render={() => (
                 <Redirect to="/app"/>
@@ -47,16 +29,16 @@ class App extends Component {
               <Route exact path="/app" component={MainApp}/>
               <Route component={NoMatch}/>
             </Switch>
-          </div>
-        ) : (
-          <div className="App">
-            <Redirect to="/login"/>
-            <Route exact path="/login" render={login}/>
-          </div>
-        )}
+          ) : (
+            <Switch>
+              <Route exact path="/login" component={Login}/>
+              <Redirect to="/login"/>
+            </Switch>
+          )}
+        </div>
       </Router>
     );
   }
-}
+})
 
 export default App;
