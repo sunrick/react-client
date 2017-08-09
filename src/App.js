@@ -12,7 +12,6 @@ import NoMatch from './NoMatch.js';
 import Login from './Login.js';
 
 import AppStore from './stores/AppStore.js';
-import axe from './helpers/axe.js';
 
 const App = observer(class App extends Component {
   render() {

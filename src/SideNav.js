@@ -31,6 +31,9 @@ const SideNav = observer(class SideNav extends Component {
               <span> main </span>
             </NavLink>
           </div>
+          <div className="logout">
+            <button onClick={() => { AppStore.logOut(); }} className="button is-small is-light is-outlined is-fullwidth"> LOG OUT </button>
+          </div>
         </div>
       </div>
     );
