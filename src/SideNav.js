@@ -4,7 +4,7 @@ import AppStore from './stores/AppStore.js';
 
 import './css/SideNav.css';
 
-class SideNav extends Component {
+const SideNav = observer(class SideNav extends Component {
   render() {
     return (
       <div className="SideNav">
@@ -34,6 +34,6 @@ class SideNav extends Component {
       </div>
     );
   }
-}
+})
 
 export default SideNav;
