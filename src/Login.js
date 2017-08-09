@@ -18,9 +18,10 @@ class Login extends Component {
     event.preventDefault();
     const self = this;
     axe.request.post('/login',{
-      user: this.state
+      user: self.state
     }).then(function(response){
-      AppStore.setAuthToken(response.data.jwt)
+      AppStore.setEmail(self.state.email);
+      AppStore.setAuthToken(response.data.jwt);
       console.log(response);
     }).catch(function(error){
       console.log(error);

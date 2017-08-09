@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import AppStore from './stores/AppStore.js';
 
 import './css/SideNav.css';
 
@@ -12,7 +13,7 @@ class SideNav extends Component {
             <h1 className="logo">m:404</h1>
             <div className="user-login">
               <i className="fa fa-circle has-text-success"></i>
-              <span> rickardsunden </span>
+              <span> {AppStore.email || 'unknown'} </span>
             </div>
           </div>
           <div className="sub-section">
