@@ -41,7 +41,7 @@ const AppStore = observable({
   }),
 
   setUsername: action.bound(function(username){
-    cookies.set('Username', username, { path: "/" });
+    cookies.set('username', username, { path: "/" });
     this.username = username;
   }),
 
