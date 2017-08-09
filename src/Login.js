@@ -20,9 +20,13 @@ class Login extends Component {
     axe.request.post('/login',{
       user: self.state
     }).then(function(response){
-      AppStore.setEmail(self.state.email);
+      // refactor
+      AppStore.setEmail(response.data.email);
+      AppStore.setFirstName(response.data.first_name);
+      AppStore.setLastName(response.data.last_name);
+      AppStore.setUsername(response.data.username);
+      AppStore.setIsAdmin(response.data.is_admin);
       AppStore.setAuthToken(response.data.jwt);
-      console.log(response);
     }).catch(function(error){
       console.log(error);
     })

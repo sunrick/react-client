@@ -14,7 +14,7 @@ const SideNav = observer(class SideNav extends Component {
             <h1 className="logo">m:404</h1>
             <div className="user-login">
               <i className="fa fa-circle has-text-success"></i>
-              <span> {AppStore.email || 'unknown'} </span>
+              <span> {AppStore.username || 'unknown'} </span>
             </div>
           </div>
           <div className="sub-section">
