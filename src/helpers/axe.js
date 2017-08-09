@@ -30,6 +30,10 @@ class Axe {
     return cookies.get('authToken') || ''
   }
 
+  isLoggedIn() {
+    return this.getAuthToken().length > 0
+  }
+
 }
 
 const axe = new Axe();

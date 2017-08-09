@@ -1,28 +1,21 @@
 import {observable, computed, action, useStrict} from "mobx";
+import axe from '../helpers/axe.js';
 
 useStrict(true);
 
 const AppStore = observable({
   // initial values
-  title: "title",
-  description: "description",
+  loggedIn: axe.isLoggedIn(),
 
-  // computed
-  channelTitleUpcase: computed(function() {
-    return this.title.toUpperCase();
+  // // actions
+  setAuthToken: action.bound(function(token){
+    axe.setAuthToken(token);
+    this.loggedIn = axe.isLoggedIn();
   }),
 
-  channelDescriptionUpcase: computed(function(){
-    return this.description.toUpperCase();
-  }),
-
-  // actions
-  changeTitle: action.bound(function(title){
-    this.title = title;
-  }),
-
-  changeDescription: action.bound(function(description){
-    this.description = description;
+  logOut: action.bound(function(){
+    axe.setAuthToken('');
+    this.loggedIn = axe.isLoggedIn();
   })
 
 });
