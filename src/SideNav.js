@@ -11,7 +11,7 @@ const SideNav = observer(class SideNav extends Component {
       <div className="SideNav">
         <div className="Right">
           <div className="header">
-            <h1 className="logo">m:404</h1>
+            <h1 className="logo">{AppStore.companyName}</h1>
             <div className="user-login">
               <i className="fa fa-circle has-text-success"></i>
               <span> {AppStore.username || 'unknown'} </span>

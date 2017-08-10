@@ -10,7 +10,7 @@ class Login extends Component {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
     };
   }
 
@@ -18,7 +18,10 @@ class Login extends Component {
     event.preventDefault();
     const self = this;
     axe.request.post('/login',{
-      user: self.state
+      user: {
+        email: self.state.email,
+        password: self.state.password
+      }
     }).then(function(response){
       // refactor
       AppStore.setEmail(response.data.email);
@@ -55,8 +58,8 @@ class Login extends Component {
         </nav>
         <div className="container">
           <div className="box">
-            <h1 className="title is-2"> Sign in to m404 </h1>
-            <h2 className="subtitle is-5"> m404.smolder.io </h2>
+            <h1 className="title is-2"> Sign in to {AppStore.companyName || "your company" } </h1>
+            <h2 className="subtitle is-5"> {window.location.hostname} </h2>
             <form onSubmit={this.handleSubmit}>
               <div className="field">
                 <div className="control">

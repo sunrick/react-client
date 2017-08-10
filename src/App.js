@@ -9,7 +9,7 @@ import { observer } from 'mobx-react';
 
 import MainApp from './MainApp.js';
 import NoMatch from './NoMatch.js';
-import Login from './Login.js';
+import LoginContainer from './LoginContainer.js';
 
 import AppStore from './stores/AppStore.js';
 
@@ -31,7 +31,8 @@ const App = observer(class App extends Component {
             </Switch>
           ) : (
             <Switch>
-              <Route exact path="/login" component={Login}/>
+              <Route exact path="/login" component={LoginContainer}/>
+              <Route exact path="/404" component={NoMatch}/>
               <Redirect to="/login"/>
             </Switch>
           )}

@@ -1,4 +1,4 @@
-import {observable, computed, action, useStrict} from "mobx";
+import {observable, action, useStrict} from "mobx"; // add computed later
 import axe from '../helpers/axe.js';
 import cookies from '../helpers/cookies.js';
 
@@ -12,6 +12,7 @@ const AppStore = observable({
   lastName: cookies.get('lastName') || '',
   username: cookies.get('username') || '',
   isAdmin: cookies.get('isAdmin') || '',
+  companyName: cookies.get('companyName') || '',
 
   // actions
   setAuthToken: action.bound(function(token){
@@ -48,6 +49,11 @@ const AppStore = observable({
   setIsAdmin: action.bound(function(isAdmin){
     cookies.set('isAdmin', isAdmin, { path: "/" });
     this.isAdmin = isAdmin;
+  }),
+
+  setCompanyName: action.bound(function(name){
+    cookies.set('companyName', name, { path: "/" });
+    this.companyName = name;
   })
 
 });
