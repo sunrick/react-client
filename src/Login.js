@@ -9,8 +9,9 @@ class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      formValid: true,
       email: '',
-      password: '',
+      password: ''
     };
   }
 
@@ -22,7 +23,7 @@ class Login extends Component {
         email: self.state.email,
         password: self.state.password
       }
-    }).then(function(response){
+    }).then((response) => {
       // refactor
       AppStore.setEmail(response.data.email);
       AppStore.setFirstName(response.data.first_name);
@@ -30,8 +31,8 @@ class Login extends Component {
       AppStore.setUsername(response.data.username);
       AppStore.setIsAdmin(response.data.is_admin);
       AppStore.setAuthToken(response.data.jwt);
-    }).catch(function(error){
-      console.log(error);
+    }).catch((error) => {
+      this.setState({formValid: false});
     })
   }
 
@@ -61,6 +62,13 @@ class Login extends Component {
             <h1 className="title is-2"> Sign in to {AppStore.companyName || "your company" } </h1>
             <h2 className="subtitle is-5"> {window.location.hostname} </h2>
             <form onSubmit={this.handleSubmit}>
+              {!this.state.formValid &&
+                <div className="message is-danger is-small">
+                  <div className="message-body">
+                    Bad email or password
+                  </div>
+                </div>
+              }
               <div className="field">
                 <div className="control">
                   <input
