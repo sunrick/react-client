@@ -104,6 +104,18 @@ $right-side-nav-right-padding: 1rem;
     padding-left: $right-side-nav-left-padding;
     justify-content: flex-start;
   }
+  .user {
+    font-size: $size-7;
+    display: flex;
+    align-items: center;
+    padding-left: $right-side-nav-left-padding;
+    height: 2em;
+    .fa {
+      font-size: $size-7 - 0.3rem;
+      margin-top: 0.1rem;
+      margin-right: 0.4rem;
+    }
+  }
 }
 
 .SideNav .Right .logout {

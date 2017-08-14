@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import { NavLink } from 'react-router-dom';
+
+import SideNavUsers from './SideNavUsers.js';
+
 import AppStore from './stores/AppStore.js';
 
 import './css/SideNav.css';
@@ -30,6 +33,10 @@ const SideNav = observer(class SideNav extends Component {
               </span>
               <span> main </span>
             </NavLink>
+          </div>
+          <div className="sub-section">
+            <h2 className="header"> users </h2>
+            <SideNavUsers/>
           </div>
           <div className="logout">
             <button onClick={() => { AppStore.logOut(); }} className="button is-small is-light is-outlined is-fullwidth"> LOG OUT </button>
